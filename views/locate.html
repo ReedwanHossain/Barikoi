@@ -1,0 +1,8 @@
+<div ng-controller="LocateController">
+    <map zoom="17" center="{{location.lat}}, {{location.lon}}">
+        <marker position="{{location.lat}}, {{location.lon}}" draggable="false">
+    </map>
+    <div>
+        <span>Address: {{location.address}}</span>
+    </div>
+</div>

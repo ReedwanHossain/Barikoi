@@ -1,0 +1,17 @@
+<div ng-controller="MainController">
+    <map zoom="17" center="23.8103, 90.4125">
+        <marker ng-repeat="pos in positions" position="{{pos.latitude}}, {{pos.longitude}}" id="{{pos.index}}" on-dragend="pinClicked(this)" title="{{pos.title}}" draggable="true">
+    </map>
+    {{latitude}}, {{longitude}}
+    <input type="text" name="address" ng-model="address" placeholder="Give a pricise address">
+    <button class="waves-effect waves-light btn" ng-click="send_address()">Send</button>
+    <br>
+    <a ui-sref="locate({mapcode : code})">View Location</a>
+
+    <div>
+        <span>Address---------code</span>
+        <div ng-repeat="add in $storage.code">
+            <span>{{add.address}}---------{{add.code}}</span>
+        </div>
+    </div>
+</div>
