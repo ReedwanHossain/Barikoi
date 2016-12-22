@@ -12,6 +12,7 @@
         var init = function() {
             $http.get(urls.MAP_CODE + $stateParams.mapcode)
                 .success(function(res) {
+                	$scope.flag = true;
                     $scope.location = res;
                 })
                 .error(function(err) {

@@ -1,8 +1,19 @@
 <div ng-controller="LocateController">
-    <map zoom="17" center="{{location.lat}}, {{location.lon}}">
-        <marker position="{{location.lat}}, {{location.lon}}" draggable="false">
-    </map>
-    <div>
-        <span>Address: {{location.address}}</span>
+    <div ng-show="flag">
+        <div flex-gt-sm="66" flex="33">
+            <map zoom="17" center="{{location.lat}}, {{location.lon}}">
+                <marker position="{{location.lat}}, {{location.lon}}" draggable="false">
+            </map>
+        </div>
+        <div flex-gt-sm="33" flex="66">
+            <div>
+                <span>Address: {{location.address}}</span>
+            </div>
+        </div>
+
     </div>
+    <span ng-show="!flag">
+     	<h1>404 not found<h1>
+     	<h3>No Address assigned for this code :( <h3>
+    </span>
 </div>

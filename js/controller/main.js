@@ -3,11 +3,25 @@
 
     var app = angular.module('myapp');
 
-    app.controller('MainController', ['$scope', '$http', '$localStorage', function($scope, $http, $localStorage) {
+    app.controller('MainController', ['$scope', '$http', '$location', '$localStorage', function($scope, $http, $location, $localStorage) {
 
         $scope.$storage = $localStorage.$default({
             code: []
         });
+
+        //  function getLocation() {
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(showPosition);
+        //     } else { 
+        //        console.log("not supported");
+        //     }
+        // }
+
+        // function showPosition(position) {
+        //     $scope.ulat = position.coords.latitude;
+        //     $scope.ulon = position.coords.longitude;
+        // }
+        // getLocation();
 
 
         var map;
@@ -52,6 +66,10 @@
                     $scope.$storage.code.push(newCode);
                     console.log($scope.$storage.code);
                 })
+        };
+
+        $scope.search_for_address = function() {
+            $location.path('/locate/' + $scope.code);
         };
 
     }]);
